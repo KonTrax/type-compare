@@ -1,0 +1,41 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+		"noEmit": true,
+    "emitDeclarationOnly": false,
+
+		"module": "commonjs",
+		"target": "es6",
+		"lib":   ["es6"],
+
+		"rootDir": ".",
+		// "outDir":  ".",
+
+		// "listFiles": true,
+		// "listEmittedFiles": true,
+
+		"types": [],
+
+		/* DTSLint needs these to operate in this directory */
+		"baseUrl": ".",
+		"paths": {
+			"@ktb/type-compare": [".."]
+			// ,"@ktb/type-compare/*": ["../*"]
+		},
+
+		/* Strict Type-Checking Options */
+		"strict":              true,
+		"noImplicitAny":       true, // Required by DTSLint
+		"strictNullChecks":    true, // Required by DTSLint
+		"strictFunctionTypes": true, // Required by DTSLint
+		"noImplicitThis":      true, // Required by DTSLint
+
+		/* Additional Checks */
+		/* next line 'false' because we need unused vars for type tests */
+		"noUnusedLocals":     false,
+		// "noUnusedParameters": false,
+		// "noImplicitReturns":  true
+  },
+	"include": ["."],
+  "exclude": ["node_modules"]
+}

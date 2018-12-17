@@ -1,0 +1,34 @@
+{
+  "name": "@ktb/type-compare",
+  "description": "Typescript type comparison utilities",
+  "version": "0.1.0",
+  "author": "KonTrax",
+  "license": "ISC",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rimraf dist/",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "preversion": "npm run test",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KonTrax/type-compare.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "bugs": {
+    "url": "https://github.com/KonTrax/type-compare/issues"
+  },
+  "homepage": "https://github.com/KonTrax/type-compare#readme",
+  "devDependencies": {
+    "rimraf": "^2.6.2",
+    "typescript": "^3.3.0-dev.20181214"
+  }
+}
