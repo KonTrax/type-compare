@@ -1,6 +1,4 @@
-import {
-	IsNever,
-} from './is'
+import { IsNever } from './is'
 
 type NEV = never
 type UNK = unknown
