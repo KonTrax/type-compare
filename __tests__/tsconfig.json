@@ -20,7 +20,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@ktb/type-compare": [".."]
-			// ,"@ktb/type-compare/*": ["../*"]
+			,"@ktb/type-compare/*": ["../*"]
 		},
 
 		/* Strict Type-Checking Options */
