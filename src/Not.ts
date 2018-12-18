@@ -1,16 +1,20 @@
 /**
- * Filter out (exclude) type(s)
+ * Invert type constraint type(s)
  *
- * - Used to further separate non-primitives
- * - Use to separate objects from functions
- * - Alias of 'Exclude'
+ * Use to:
+ * - invert/negate function parameter constraints (example below)
+ * - separate non-primitives
+ * - separate objects from functions
+ *
+ * Alias of builtin `Exclude`
  *
  * @param {any} T - Type expected
- * @param {any} U - Type to exclude
+ * @param {any} U - Type to exclude / negate
  *
  * @example
- * function fn <T extends any> (arg :T & Not<T, Function>) :typeof arg { return arg }
- * fn(       { name: 'bob' })  // OK
- * fn(() => ({ name: 'bob' })) // ERROR
+ *   // Any Non-Function Parameter
+ *   const fn = <T extends any> (arg :T & Not<T, Function>) => arg
+ *   fn(      123) // OK
+ *   fn(() => 123) // ERROR
  */
 export type Not <T, U> = Exclude<T, U>
