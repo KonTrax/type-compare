@@ -1,3 +1,6 @@
+/**
+ * Get string literal name of type `T`
+ */
 export type TypeName <T = any> =
 		| T extends string    ? 'string'
 		: T extends number    ? 'number'
