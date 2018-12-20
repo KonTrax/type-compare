@@ -1,4 +1,4 @@
-import { IsSpecial } from './is'
+import { IsValue } from './is'
 
 /**
  * Value-type guard
@@ -7,4 +7,4 @@ import { IsSpecial } from './is'
  * - `T`     - value types
  * - `never` - special types
  */
-export type ValueType <T, ELSE = never> = IsSpecial<T, ELSE, T>
+export type ValueType <T, ELSE = never> = IsValue<T, T, ELSE>
