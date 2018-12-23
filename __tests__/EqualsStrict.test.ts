@@ -51,3 +51,19 @@ FAL = Test<VAL, NEV>()
 FAL = Test<VAL, void>()
 
 //==============================================================================
+//=== Objects ===
+
+// CASE:
+FAL = Test<{ prop :true }, {}>()
+
+// CASE: Empty object should not equal all optional props object
+FAL = Test<{ prop ?:true }, {}>()
+
+// CASE: Optional object prop should equal itself
+TRU = Test<{ prop ?:true }, { prop ?:true }>()
+TRU = Test<{ prop ?:true }, { prop ?:true | undefined }>()
+
+// CASE: Optional object prop should not equal required | undefined
+FAL = Test<{ prop ?:true }, { prop :true | undefined }>()
+
+//==============================================================================

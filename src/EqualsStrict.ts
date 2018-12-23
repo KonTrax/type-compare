@@ -18,7 +18,10 @@ export type EqualsStrict <A, B, THEN = A, ELSE = never> =
 		[unknown] extends [A | B] ? EqualsUnknownOrAny<A, B, THEN, ELSE>
 
 		: // (A == B) === VAL | NEV
-		[A, B] extends [B, A] ? THEN
+		[A, B] extends [B, A] ?
+
+		// Compare keys to diff {} from { prop ?:any }
+		[keyof A, keyof B] extends [keyof B, keyof A] ? THEN : ELSE
 
 		: // (A != B) === ?
 		ELSE
