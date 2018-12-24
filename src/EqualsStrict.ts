@@ -1,10 +1,11 @@
 import { EqualsUnknownOrAny } from './EqualsUnknownOrAny'
+import { SafeCompact } from './Compact'
 
 export {
 	// EqualsStrict1 as EqualsStrict
 	// EqualsStrict2 as EqualsStrict
-	EqualsStrict3 as EqualsStrict
-	// EqualsStrict4 as EqualsStrict
+	// EqualsStrict3 as EqualsStrict
+	EqualsStrict4 as EqualsStrict
 }
 
 /**
@@ -73,4 +74,27 @@ export type EqualsStrict3 <A, B, THEN = A, ELSE = never> =
 				[B] extends [any[] | Function] ? ELSE :
 				EqualsStrict1<A, B, THEN, ELSE>
 		)
+)
+
+/**
+ * Strict type equality comparison
+ *
+ * Wraps `A` & `B` in [] for comparison
+ *
+ * Useful for writing tests for types
+ *
+ * **Features**:
+ * - `never`   only equals `never`
+ * - `any`     only equals `any`
+ * - `unknown` only equals `unknown`
+ */
+export type EqualsStrict4 <A, B, THEN = A, ELSE = never> =
+(
+		(<C> () => C extends A ? 1 : 0) extends
+		(<C> () => C extends B ? 1 : 0)
+				? [A, B] extends [B, A] ? THEN : ELSE :
+
+		(<C> () => C extends SafeCompact<A> ? 1 : 0) extends
+		(<C> () => C extends SafeCompact<B> ? 1 : 0)
+				? THEN : ELSE
 )
