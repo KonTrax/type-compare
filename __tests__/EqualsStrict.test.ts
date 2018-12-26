@@ -200,6 +200,16 @@ interface Expect {
 
 	FAL = Test<{ prop ?:true }, { prop :true | undefined }>()
 
+//==============================================================================
+//=== Objects: Unions ===
+
+	// CASE: Type should not equal a union of both matching and conflicting types
+
+	FAL = Test<{ b :0 }, { a :0, b :0 } | { b :0 }>()
+
+//==============================================================================
+//=== Objects: Intersections ===
+
 	// CASE: Matching object and intersection is equal
 
 	TRU = Test<{ x :1 } & { y :2 }, { x :1, y :2 }>()
