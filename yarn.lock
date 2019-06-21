@@ -76,10 +76,10 @@ rimraf@^2.6.2:
   dependencies:
     glob "^7.0.5"
 
-typescript@^3.3.0-dev.20181214:
-  version "3.3.0-dev.20181214"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.3.0-dev.20181214.tgz#36890168e9b965727204eaa0ee05de2782fd2e40"
-  integrity sha512-dy3hilVp3gHsKEqj837gzo6YLn5IuX+5obTkdLJuvceYQ1B/fBnj4Y+FB44IQdmZ4oaeQd5+7u+uI6vDvp5FhQ==
+typescript@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.2.tgz#a09e1dc69bc9551cadf17dba10ee42cf55e5d56c"
+  integrity sha512-7KxJovlYhTX5RaRbUdkAXN1KUZ8PwWlTzQdHV6xNqvuFOs7+WBo10TQUqT19Q/Jz2hk5v9TQDIhyLhhJY4p5AA==
 
 wrappy@1:
   version "1.0.2"
