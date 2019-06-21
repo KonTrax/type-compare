@@ -5,8 +5,8 @@
     "emitDeclarationOnly": false,
 
 		"module": "commonjs",
-		"target": "es6",
-		"lib":   ["es6"],
+		"target": "esnext",
+		"lib":   ["es6", "esnext.bigint"],
 
 		"rootDir": ".",
 		// "outDir":  ".",
