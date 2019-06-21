@@ -27,48 +27,80 @@ interface Expect {
 //=== Special Types ===
 
 	;{const EQ = expect<any>();
-		TRU = EQ<ANY>(); /**/ FAL = EQ<UNK>(); /**/ FAL = EQ<NEV>()
-		FAL = EQ<VAL>(); /**/ FAL = EQ<void>()
+		TRU = EQ<ANY>(); /**/ FAL = EQ<UNK>();  /**/ FAL = EQ<NEV>()
+		FAL = EQ<VAL>(); /**/ FAL = EQ<void>(); /**/ FAL = EQ<{}>()
+		FAL = EQ<object>();
 	}
 	;{const EQ = expect<unknown>();
-		FAL = EQ<ANY>(); /**/ TRU = EQ<UNK>(); /**/ FAL = EQ<NEV>()
-		FAL = EQ<VAL>(); /**/ FAL = EQ<void>()
+		FAL = EQ<ANY>(); /**/ TRU = EQ<UNK>();  /**/ FAL = EQ<NEV>()
+		FAL = EQ<VAL>(); /**/ FAL = EQ<void>(); /**/ FAL = EQ<{}>()
+		FAL = EQ<object>();
 	}
 	;{const EQ = expect<never>();
-		FAL = EQ<ANY>(); /**/ FAL = EQ<UNK>(); /**/ TRU = EQ<NEV>()
-		FAL = EQ<VAL>(); /**/ FAL = EQ<void>()
+		FAL = EQ<ANY>(); /**/ FAL = EQ<UNK>();  /**/ TRU = EQ<NEV>()
+		FAL = EQ<VAL>(); /**/ FAL = EQ<void>(); /**/ FAL = EQ<{}>()
+		FAL = EQ<object>();
 	}
 	;{const EQ = expect<VAL>();
-		FAL = EQ<ANY>(); /**/ FAL = EQ<UNK>(); /**/ FAL = EQ<NEV>()
-		TRU = EQ<VAL>(); /**/ FAL = EQ<void>()
+		FAL = EQ<ANY>(); /**/ FAL = EQ<UNK>();  /**/ FAL = EQ<NEV>()
+		TRU = EQ<VAL>(); /**/ FAL = EQ<void>(); /**/ FAL = EQ<{}>()
+		FAL = EQ<object>();
 	}
 	;{const EQ = expect<void>();
-		FAL = EQ<ANY>(); /**/ FAL = EQ<UNK>(); /**/ FAL = EQ<NEV>()
-		FAL = EQ<VAL>(); /**/ TRU = EQ<void>()
+		FAL = EQ<ANY>(); /**/ FAL = EQ<UNK>();  /**/ FAL = EQ<NEV>()
+		FAL = EQ<VAL>(); /**/ TRU = EQ<void>(); /**/ FAL = EQ<{}>()
+		FAL = EQ<object>();
+	}
+
+	;{const EQ = expect<{}>();
+		FAL = EQ<ANY>(); /**/ FAL = EQ<UNK>();  /**/ FAL = EQ<NEV>()
+		FAL = EQ<VAL>(); /**/ FAL = EQ<void>(); /**/ TRU = EQ<{}>()
+		FAL = EQ<object>();
+	}
+	;{const EQ = expect<object>();
+		FAL = EQ<ANY>(); /**/ FAL = EQ<UNK>();  /**/ FAL = EQ<NEV>()
+		FAL = EQ<VAL>(); /**/ FAL = EQ<void>(); /**/ FAL = EQ<{}>()
+		TRU = EQ<object>();
 	}
 
 //==============================================================================
 //=== Special Types - Tuples ===
 
 	;{const EQ = expect<[any]>();
-		TRU = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>(); /**/ FAL = EQ<[NEV]>()
-		FAL = EQ<[VAL]>(); /**/ FAL = EQ<[void]>()
+		TRU = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>();  /**/ FAL = EQ<[NEV]>()
+		FAL = EQ<[VAL]>(); /**/ FAL = EQ<[void]>(); /**/ FAL = EQ<[{}]>()
+		FAL = EQ<[object]>();
 	}
 	;{const EQ = expect<[unknown]>();
-		FAL = EQ<[ANY]>(); /**/ TRU = EQ<[UNK]>(); /**/ FAL = EQ<[NEV]>()
-		FAL = EQ<[VAL]>(); /**/ FAL = EQ<[void]>()
+		FAL = EQ<[ANY]>(); /**/ TRU = EQ<[UNK]>();  /**/ FAL = EQ<[NEV]>()
+		FAL = EQ<[VAL]>(); /**/ FAL = EQ<[void]>(); /**/ FAL = EQ<[{}]>()
+		FAL = EQ<[object]>();
 	}
 	;{const EQ = expect<[never]>();
-		FAL = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>(); /**/ TRU = EQ<[NEV]>()
-		FAL = EQ<[VAL]>(); /**/ FAL = EQ<[void]>()
+		FAL = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>();  /**/ TRU = EQ<[NEV]>()
+		FAL = EQ<[VAL]>(); /**/ FAL = EQ<[void]>(); /**/ FAL = EQ<[{}]>()
+		FAL = EQ<[object]>();
 	}
 	;{const EQ = expect<[VAL]>();
-		FAL = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>(); /**/ FAL = EQ<[NEV]>()
-		TRU = EQ<[VAL]>(); /**/ FAL = EQ<[void]>()
+		FAL = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>();  /**/ FAL = EQ<[NEV]>()
+		TRU = EQ<[VAL]>(); /**/ FAL = EQ<[void]>(); /**/ FAL = EQ<[{}]>()
+		FAL = EQ<[object]>();
 	}
 	;{const EQ = expect<[void]>();
-		FAL = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>(); /**/ FAL = EQ<[NEV]>()
-		FAL = EQ<[VAL]>(); /**/ TRU = EQ<[void]>()
+		FAL = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>();  /**/ FAL = EQ<[NEV]>()
+		FAL = EQ<[VAL]>(); /**/ TRU = EQ<[void]>(); /**/ FAL = EQ<[{}]>()
+		FAL = EQ<[object]>();
+	}
+
+	;{const EQ = expect<[{}]>();
+		FAL = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>();  /**/ FAL = EQ<[NEV]>()
+		FAL = EQ<[VAL]>(); /**/ FAL = EQ<[void]>(); /**/ TRU = EQ<[{}]>()
+		FAL = EQ<[object]>();
+	}
+	;{const EQ = expect<[object]>();
+		FAL = EQ<[ANY]>(); /**/ FAL = EQ<[UNK]>();  /**/ FAL = EQ<[NEV]>()
+		FAL = EQ<[VAL]>(); /**/ FAL = EQ<[void]>(); /**/ FAL = EQ<[{}]>()
+		TRU = EQ<[object]>();
 	}
 
 //==============================================================================
@@ -77,22 +109,62 @@ interface Expect {
 	;{const EQ = expect<any[]>();
 		TRU = EQ<ANY[]>(); /**/ FAL = EQ<UNK[]>(); /**/ FAL = EQ<NEV[]>()
 		FAL = EQ<VAL[]>(); /**/ FAL = EQ<void[]>()
+		FAL = EQ<object[]>();
 	}
 	;{const EQ = expect<unknown[]>();
 		FAL = EQ<ANY[]>(); /**/ TRU = EQ<UNK[]>(); /**/ FAL = EQ<NEV[]>()
 		FAL = EQ<VAL[]>(); /**/ FAL = EQ<void[]>()
+		FAL = EQ<object[]>();
 	}
 	;{const EQ = expect<never[]>();
 		FAL = EQ<ANY[]>(); /**/ FAL = EQ<UNK[]>(); /**/ TRU = EQ<NEV[]>()
 		FAL = EQ<VAL[]>(); /**/ FAL = EQ<void[]>()
+		FAL = EQ<object[]>();
 	}
 	;{const EQ = expect<VAL[]>();
 		FAL = EQ<ANY[]>(); /**/ FAL = EQ<UNK[]>(); /**/ FAL = EQ<NEV[]>()
 		TRU = EQ<VAL[]>(); /**/ FAL = EQ<void[]>()
+		FAL = EQ<object[]>();
 	}
 	;{const EQ = expect<void[]>();
 		FAL = EQ<ANY[]>(); /**/ FAL = EQ<UNK[]>(); /**/ FAL = EQ<NEV[]>()
 		FAL = EQ<VAL[]>(); /**/ TRU = EQ<void[]>()
+		FAL = EQ<object[]>();
+	}
+
+	;{const EQ = expect<{}[]>();
+		FAL = EQ<ANY[]>(); /**/ FAL = EQ<UNK[]>();  /**/ FAL = EQ<NEV[]>()
+		FAL = EQ<VAL[]>(); /**/ FAL = EQ<void[]>(); /**/ TRU = EQ<{}[]>()
+		FAL = EQ<object[]>();
+	}
+	;{const EQ = expect<object[]>();
+		FAL = EQ<ANY[]>(); /**/ FAL = EQ<UNK[]>();  /**/ FAL = EQ<NEV[]>()
+		FAL = EQ<VAL[]>(); /**/ FAL = EQ<void[]>(); /**/ FAL = EQ<{}[]>()
+		TRU = EQ<object[]>();
+	}
+
+//==============================================================================
+//=== Misc ===
+
+	;{const EQ = expect<void>();
+		TRU = EQ<void>(); FAL = EQ<null>(); FAL = EQ<undefined>();
+		FAL = EQ<{}>();   FAL = EQ<object>();
+	}
+	;{const EQ = expect<null>();
+		FAL = EQ<void>(); TRU = EQ<null>(); FAL = EQ<undefined>();
+		FAL = EQ<{}>();   FAL = EQ<object>();
+	}
+	;{const EQ = expect<undefined>();
+		FAL = EQ<void>(); FAL = EQ<null>(); TRU = EQ<undefined>();
+		FAL = EQ<{}>();   FAL = EQ<object>();
+	}
+	;{const EQ = expect<{}>();
+		FAL = EQ<void>(); FAL = EQ<null>(); FAL = EQ<undefined>();
+		TRU = EQ<{}>();   FAL = EQ<object>();
+	}
+	;{const EQ = expect<object>();
+		FAL = EQ<void>(); FAL = EQ<null>(); FAL = EQ<undefined>();
+		FAL = EQ<{}>();   TRU = EQ<object>();
 	}
 
 //==============================================================================
@@ -181,15 +253,24 @@ interface Expect {
 	TRU = Test<any[], [...any[]]>()
 
 //==============================================================================
-//=== Objects ===
+//=== Objects: Empty object ===
 
-	// CASE:
+	// CASE: Empty object should not equal all required props object
 
-	FAL = Test<{ prop :true }, {}>()
+	FAL = Test<{}, { prop  :true }>()
 
 	// CASE: Empty object should not equal all optional props object
 
-	FAL = Test<{ prop ?:true }, {}>()
+	FAL = Test<{}, { prop ?:true }>()
+
+	// CASE: Empty object should not equal indexed object
+
+	FAL = Test<{}, { [x :string] :any }>()
+	FAL = Test<{}, { [x :number] :any }>()
+	FAL = Test<{}, { [x :string] :any, [x :number] :any }>()
+
+//==============================================================================
+//=== Objects: Modifiers ===
 
 	// CASE: Optional object prop should equal itself
 
